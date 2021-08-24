@@ -2,26 +2,25 @@ package com.example.orderservice.entity;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import java.time.LocalDateTime;
+import javax.persistence.Table;
 
 @Entity
+@Table(name="transaction")
 public class Order {
     @Id
     private String id;
     private String userId;
     private String productId;
     private int quantity;
-    private LocalDateTime date;
 
     public Order() {
     }
 
-    public Order(String id, String userId, String productId, int quantity, LocalDateTime date) {
+    public Order(String id, String userId, String productId, int quantity) {
         this.id = id;
         this.userId = userId;
         this.productId = productId;
         this.quantity = quantity;
-        this.date = date;
     }
 
     public String getId() {
@@ -54,13 +53,5 @@ public class Order {
 
     public void setQuantity(int quantity) {
         this.quantity = quantity;
-    }
-
-    public LocalDateTime getDate() {
-        return date;
-    }
-
-    public void setDate(LocalDateTime date) {
-        this.date = date;
     }
 }
