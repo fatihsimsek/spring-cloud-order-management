@@ -48,13 +48,4 @@ public class AuthController {
         String jwt = tokenProvider.generateToken(user.get());
         return ResponseEntity.ok(new JwtAuthenticationResponse(jwt));
     }
-
-    @PostMapping("/validateToken")
-    public ResponseEntity<?> validateToken(@RequestBody String token) {
-        if(StringUtils.hasText(token) && tokenProvider.validateToken(token)) {
-            return ResponseEntity.ok(tokenProvider.getAuthentication(token));
-        } else {
-            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(new ApiResponse(false, "Token not valid"));
-        }
-    }
 }
