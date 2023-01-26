@@ -14,8 +14,12 @@ import java.util.UUID;
 
 @Repository
 public class ProductRepository {
-    @PersistenceContext
+
     private EntityManager entityManager;
+
+    public ProductRepository(EntityManager entityManager) {
+        this.entityManager = entityManager;
+    }
 
     public List<Product> getAll() {
         TypedQuery<Product> query = entityManager.createQuery("from Product", Product.class);
