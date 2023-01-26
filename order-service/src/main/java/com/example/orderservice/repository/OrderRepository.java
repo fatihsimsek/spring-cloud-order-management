@@ -15,7 +15,6 @@ import java.util.UUID;
 @Repository
 public class OrderRepository {
 
-    @PersistenceContext
     private EntityManager entityManager;
 
     public List<Order> getAll() {
