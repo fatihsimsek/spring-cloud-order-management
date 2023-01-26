@@ -14,8 +14,11 @@ import java.util.UUID;
 @Repository
 public class RoleRepository {
 
-    @PersistenceContext
     private EntityManager entityManager;
+
+    public RoleRepository(EntityManager entityManager) {
+        this.entityManager = entityManager;
+    }
 
     public List<Role> getAll() {
         TypedQuery<Role> query = entityManager.createQuery("from Role", Role.class);

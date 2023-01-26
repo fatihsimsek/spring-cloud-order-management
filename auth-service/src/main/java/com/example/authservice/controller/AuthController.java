@@ -26,7 +26,6 @@ public class AuthController {
     private JwtTokenProvider tokenProvider;
     private PasswordEncoder passwordEncoder;
 
-    @Autowired
     public AuthController(UserService userService, JwtTokenProvider tokenProvider, PasswordEncoder passwordEncoder) {
         this.userService = userService;
         this.tokenProvider = tokenProvider;

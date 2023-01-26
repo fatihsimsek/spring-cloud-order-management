@@ -17,6 +17,10 @@ public class OrderRepository {
 
     private EntityManager entityManager;
 
+    public OrderRepository(EntityManager entityManager) {
+        this.entityManager = entityManager;
+    }
+
     public List<Order> getAll() {
         TypedQuery<Order> query = entityManager.createQuery("from Order", Order.class);
         return query.getResultList();

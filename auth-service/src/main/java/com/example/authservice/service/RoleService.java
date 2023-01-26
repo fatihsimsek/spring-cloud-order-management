@@ -12,7 +12,6 @@ import java.util.Optional;
 public class RoleService {
     private RoleRepository roleRepository;
 
-    @Autowired
     public RoleService(RoleRepository roleRepository) {
         this.setRoleRepository(roleRepository);
     }
