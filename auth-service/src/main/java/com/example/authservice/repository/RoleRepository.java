@@ -27,7 +27,7 @@ public class RoleRepository {
 
     public Optional<Role> getById(String id) {
         Role role = entityManager.find(Role.class, id);
-        return Optional.of(role);
+        return Optional.ofNullable(role);
     }
 
     public Optional<Role> getByCode(String code) {
@@ -36,7 +36,7 @@ public class RoleRepository {
 
         List<Role> roles = query.getResultList();
 
-        return roles.size() > 0 ? Optional.of(roles.get(0)) : Optional.of(null);
+        return roles.size() > 0 ? Optional.of(roles.get(0)) : Optional.empty();
     }
 
     public void save(Role role) {

@@ -36,7 +36,7 @@ public class UserRepository {
 
         List<User> users = query.getResultList();
 
-        return users.size() > 0 ? Optional.of(users.get(0)) : Optional.of(null);
+        return users.size() > 0 ? Optional.ofNullable(users.get(0)) : Optional.empty();
     }
 
     public void save(User user) {
